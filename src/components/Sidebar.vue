@@ -1,16 +1,16 @@
 <template>
-  <div class="fixed inset-0">
+  <div class="inset-0 lg:hidden">
     <button
       type="button"
       @click="openSidebar"
       class="
+        text-3xl
         rounded-md
         bg-black bg-opacity-20
         px-4
         py-2
-        text-sm
-        font-medium
-        text-white
+        text-xl text-black/90
+        bg-transparent
         hover:bg-opacity-30
         focus:outline-none
         focus-visible:ring-2
@@ -21,6 +21,7 @@
       <i class="fa fa-bars" />
     </button>
   </div>
+
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeSidebar" class="relative z-10">
       <TransitionChild
@@ -48,13 +49,12 @@
             leave-from="opacity-100 scale-100"
             leave-to="opacity-0 scale-95"
           >
+            <!--Sidebar content start-->
             <DialogPanel
               class="
-                max-w-md
                 transform
                 overflow-hidden
                 bg-white
-                p-6
                 text-left
                 align-middle
                 shadow-xl
@@ -63,28 +63,23 @@
                 right-0
                 absolute
                 h-[100vh]
-                w-[450px]
+                w-[100vw]
+                md:max-w-[450px]
+                will-change-auto
               "
             >
-              <DialogTitle
-                as="h2"
-                class="text-2xl font-black leading-6 text-gray-900 text-center"
-              >
-                Menu
-              </DialogTitle>
-
-              <div class="mt-4">
+              <!--Close btn-->
+              <div class="">
                 <button
                   type="button"
                   class="
                     inline-flex
                     justify-center
                     rounded-md
-                    text-3xl
+                    text-4xl
                     border border-transparent
                     px-4
                     py-2
-                    text-sm
                     font-medium
                     text-blue-900
                     focus:outline-none
@@ -97,8 +92,14 @@
                   <i class="fa fa-times" />
                 </button>
               </div>
-
-              <div class="mt-2 flex flex-col">
+              <!--Menu title-->
+              <DialogTitle
+                as="h2"
+                class="text-3xl font-black leading-6 text-gray-900 text-center"
+              >
+                Menu
+              </DialogTitle>
+              <div class="mt-2 flex flex-col text-center">
                 <a href="/">Home</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
