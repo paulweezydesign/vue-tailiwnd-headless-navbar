@@ -50,11 +50,9 @@
           >
             <DialogPanel
               class="
-                
                 max-w-md
                 transform
                 overflow-hidden
-               
                 bg-white
                 p-6
                 text-left
@@ -70,9 +68,9 @@
             >
               <DialogTitle
                 as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
+                class="text-2xl font-black leading-6 text-gray-900 text-center"
               >
-                Payment successful
+                Menu
               </DialogTitle>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
@@ -116,6 +114,7 @@
 
 <script setup>
 import { ref } from 'vue';
+
 import {
   TransitionRoot,
   TransitionChild,
@@ -124,7 +123,7 @@ import {
   DialogTitle,
 } from '@headlessui/vue';
 
-const isOpen = ref(true);
+const isOpen = ref(false);
 
 function closeModal() {
   isOpen.value = false;
